@@ -17,6 +17,7 @@ public class Item {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 	
+	private String sku;
 	
 	private String descricao;
 	
@@ -68,5 +69,12 @@ public class Item {
 		this.valor = valor;
 	}
 	
+	public String getSku() {
+		return sku;
+	}
+	
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
 	
 }
