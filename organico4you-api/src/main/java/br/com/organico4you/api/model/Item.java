@@ -17,6 +17,7 @@ public class Item {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name="codigo")
 	private long id;
 	
 	@NotNull

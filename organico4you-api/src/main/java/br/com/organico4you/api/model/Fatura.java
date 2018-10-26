@@ -23,6 +23,7 @@ public class Fatura {
 	private Long id;
 	
 	@NotNull
+	@Column(name="data_compra")
 	private LocalDate data;
 	
 	@NotNull

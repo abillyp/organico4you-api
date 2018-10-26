@@ -19,9 +19,9 @@ public class ClienteController {
 	private ClienteRepository clienteRepository;
 	
 	
-	@GetMapping("/")
+	@GetMapping
 	public List<Cliente> listar(){
-		System.out.println("passei aqui");
+		System.out.println("################################################### passei aqui ################################################### ");
 		return clienteRepository.findAll();
 	}
 	

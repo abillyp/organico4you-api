@@ -18,7 +18,7 @@ public class ItemController {
 	@Autowired
 	private ItemRepository itemRepository;
 	
-	@GetMapping("/")
+	@GetMapping
 	public List<Item> listar(){
 		return itemRepository.findAll();
 	}
