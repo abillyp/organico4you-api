@@ -3,12 +3,16 @@ package br.com.organico4you.api.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="fatura")
@@ -18,56 +22,25 @@ public class Fatura {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotNull
 	private LocalDate data;
 	
-	private BigDecimal valor_remessa;
+	@NotNull
+	@Column(name="valor_entrega")
+	private BigDecimal valorEntrega;
 	
-	private BigDecimal valor_total;
+	@NotNull
+	@Column(name="valor_total")
+	private BigDecimal valorTotal;
+	
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	@Column(name="forma_pagamento")
+	private FormaPagamento formaPagamento;
 	
 	@ManyToOne
 	private Cliente cliente;
-	
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public LocalDate getData() {
-		return data;
-	}
-
-	public void setData(LocalDate data) {
-		this.data = data;
-	}
-
-	public BigDecimal getValor_remessa() {
-		return valor_remessa;
-	}
-
-	public void setValor_remessa(BigDecimal valor_remessa) {
-		this.valor_remessa = valor_remessa;
-	}
-
-	public BigDecimal getValor_total() {
-		return valor_total;
-	}
-
-	public void setValor_total(BigDecimal valor_total) {
-		this.valor_total = valor_total;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
+		
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -92,8 +65,53 @@ public class Fatura {
 			return false;
 		return true;
 	}
-	
-	
-	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
+
+	public BigDecimal getValorEntrega() {
+		return valorEntrega;
+	}
+
+	public void setValorEntrega(BigDecimal valorEntrega) {
+		this.valorEntrega = valorEntrega;
+	}
+
+	public BigDecimal getValorTotal() {
+		return valorTotal;
+	}
+
+	public void setValorTotal(BigDecimal valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+
+	public FormaPagamento getFormaPagamento() {
+		return formaPagamento;
+	}
+
+	public void setFormaPagamento(FormaPagamento formaPagamento) {
+		this.formaPagamento = formaPagamento;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 
 }

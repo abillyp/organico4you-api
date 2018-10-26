@@ -20,11 +20,27 @@ public class Linha {
 	private Long quantidadeItens;
 	
 	@ManyToOne
-	private Long relatorio;
+	private Fatura fatura;
 
 	@ManyToOne
-	private Long item;
+	private Item item;
 	
+	public Fatura getFatura() {
+		return fatura;
+	}
+
+	public void setFatura(Fatura fatura) {
+		this.fatura = fatura;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -35,14 +51,6 @@ public class Linha {
 
 	public void setQuantidadeItens(Long quantidadeItens) {
 		this.quantidadeItens = quantidadeItens;
-	}
-
-	public Long getRelatorio() {
-		return relatorio;
-	}
-
-	public void setRelatorio(Long relatorio) {
-		this.relatorio = relatorio;
 	}
 
 	public void setId(Long id) {
@@ -56,7 +64,7 @@ public class Linha {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((quantidadeItens == null) ? 0 : quantidadeItens.hashCode());
-		result = prime * result + ((relatorio == null) ? 0 : relatorio.hashCode());
+		result = prime * result + ((fatura == null) ? 0 : fatura.hashCode());
 		return result;
 	}
 
@@ -79,10 +87,10 @@ public class Linha {
 				return false;
 		} else if (!quantidadeItens.equals(other.quantidadeItens))
 			return false;
-		if (relatorio == null) {
-			if (other.relatorio != null)
+		if (fatura == null) {
+			if (other.fatura != null)
 				return false;
-		} else if (!relatorio.equals(other.relatorio))
+		} else if (!fatura.equals(other.fatura))
 			return false;
 		return true;
 	}

@@ -1,5 +1,6 @@
 package br.com.organico4you.api.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
@@ -14,6 +15,7 @@ public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="codigo")
 	private Long id;
 	
 	@NotNull

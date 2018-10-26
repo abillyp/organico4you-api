@@ -2,11 +2,13 @@ package br.com.organico4you.api.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -17,11 +19,35 @@ public class Item {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 	
+	@NotNull
 	private String sku;
 	
+	@NotNull
 	private String descricao;
 	
-	private BigDecimal valor;
+	@NotNull
+	@Column(name="valor_dinheiro")
+	private BigDecimal valorDinheiro;
+	
+	@NotNull
+	@Column(name="valor_Cartao")
+	private BigDecimal valorCartao;
+
+	public BigDecimal getValorDinheiro() {
+		return valorDinheiro;
+	}
+
+	public void setValorDinheiro(BigDecimal valorDinheiro) {
+		this.valorDinheiro = valorDinheiro;
+	}
+
+	public BigDecimal getValorCartao() {
+		return valorCartao;
+	}
+
+	public void setValorCartao(BigDecimal valorCartao) {
+		this.valorCartao = valorCartao;
+	}
 
 	@Override
 	public int hashCode() {
@@ -59,14 +85,6 @@ public class Item {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public BigDecimal getValor() {
-		return valor;
-	}
-
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
 	}
 	
 	public String getSku() {
