@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,7 +22,7 @@ public class Linha {
 	@ManyToOne
 	private Long relatorio;
 
-	@OneToMany
+	@ManyToOne
 	private Long item;
 	
 	public Long getId() {
